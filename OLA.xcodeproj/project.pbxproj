@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		55D422C61A86062700254B1C /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D422C41A86062700254B1C /* BookingViewController.m */; };
 		55D422C71A86062700254B1C /* BookingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D422C51A86062700254B1C /* BookingViewController.xib */; };
+		6E9AB2C51A860EFD00BCEF8E /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AB2C41A860EFD00BCEF8E /* Firebase.framework */; };
+		6E9AB2C71A860F9B00BCEF8E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AB2C61A860F9B00BCEF8E /* libicucore.dylib */; };
+		6E9AB2C91A860FA500BCEF8E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AB2C81A860FA500BCEF8E /* libc++.dylib */; };
+		6E9AB2CB1A860FAE00BCEF8E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AB2CA1A860FAE00BCEF8E /* CFNetwork.framework */; };
+		6E9AB2CD1A860FB700BCEF8E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AB2CC1A860FB700BCEF8E /* Security.framework */; };
+		6E9AB2CF1A860FC500BCEF8E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AB2CE1A860FC500BCEF8E /* SystemConfiguration.framework */; };
 		6EAA082F1A85D36900701770 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAA082E1A85D36900701770 /* Foundation.framework */; };
 		6EAA08311A85D36900701770 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAA08301A85D36900701770 /* CoreGraphics.framework */; };
 		6EAA08331A85D36900701770 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAA08321A85D36900701770 /* UIKit.framework */; };
@@ -38,6 +44,12 @@
 		55D422C31A86062700254B1C /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
 		55D422C41A86062700254B1C /* BookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingViewController.m; sourceTree = "<group>"; };
 		55D422C51A86062700254B1C /* BookingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookingViewController.xib; sourceTree = "<group>"; };
+		6E9AB2C41A860EFD00BCEF8E /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		6E9AB2C61A860F9B00BCEF8E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		6E9AB2C81A860FA500BCEF8E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		6E9AB2CA1A860FAE00BCEF8E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6E9AB2CC1A860FB700BCEF8E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6E9AB2CE1A860FC500BCEF8E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6EAA082B1A85D36900701770 /* OLA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OLA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAA082E1A85D36900701770 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6EAA08301A85D36900701770 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,9 +75,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9AB2CF1A860FC500BCEF8E /* SystemConfiguration.framework in Frameworks */,
+				6E9AB2CD1A860FB700BCEF8E /* Security.framework in Frameworks */,
+				6E9AB2CB1A860FAE00BCEF8E /* CFNetwork.framework in Frameworks */,
+				6E9AB2C91A860FA500BCEF8E /* libc++.dylib in Frameworks */,
+				6E9AB2C71A860F9B00BCEF8E /* libicucore.dylib in Frameworks */,
 				6EAA08311A85D36900701770 /* CoreGraphics.framework in Frameworks */,
 				6EAA08331A85D36900701770 /* UIKit.framework in Frameworks */,
 				6EAA082F1A85D36900701770 /* Foundation.framework in Frameworks */,
+				6E9AB2C51A860EFD00BCEF8E /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +110,14 @@
 			path = Booking;
 			sourceTree = "<group>";
 		};
+		6E9AB2C31A860EFD00BCEF8E /* ExternalFramework */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AB2C41A860EFD00BCEF8E /* Firebase.framework */,
+			);
+			path = ExternalFramework;
+			sourceTree = "<group>";
+		};
 		6EAA08221A85D36900701770 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +140,11 @@
 		6EAA082D1A85D36900701770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E9AB2CE1A860FC500BCEF8E /* SystemConfiguration.framework */,
+				6E9AB2CC1A860FB700BCEF8E /* Security.framework */,
+				6E9AB2CA1A860FAE00BCEF8E /* CFNetwork.framework */,
+				6E9AB2C81A860FA500BCEF8E /* libc++.dylib */,
+				6E9AB2C61A860F9B00BCEF8E /* libicucore.dylib */,
 				6EAA082E1A85D36900701770 /* Foundation.framework */,
 				6EAA08301A85D36900701770 /* CoreGraphics.framework */,
 				6EAA08321A85D36900701770 /* UIKit.framework */,
@@ -125,6 +156,7 @@
 		6EAA08341A85D36900701770 /* OLA */ = {
 			isa = PBXGroup;
 			children = (
+				6E9AB2C31A860EFD00BCEF8E /* ExternalFramework */,
 				55D422C21A86032500254B1C /* Booking */,
 				6EAA083D1A85D36900701770 /* AppDelegate.h */,
 				6EAA083E1A85D36900701770 /* AppDelegate.m */,
@@ -382,9 +414,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OLA/ExternalFramework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OLA/OLA-Prefix.pch";
 				INFOPLIST_FILE = "OLA/OLA-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -395,9 +432,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OLA/ExternalFramework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OLA/OLA-Prefix.pch";
 				INFOPLIST_FILE = "OLA/OLA-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
