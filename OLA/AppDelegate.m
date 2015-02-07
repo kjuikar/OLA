@@ -7,12 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "BookingViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    BookingViewController *cpvc = [[BookingViewController alloc] init];
+    
+    UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
+    //self.navigationController = navcon;
+    [self.window setRootViewController:navcon];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
