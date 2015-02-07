@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface DataBaseHelper : NSObject
+
++ (void) getNearestDriver:(void (^)(NSArray *usersArr)) completionBlock;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CALayer+XibConfiguration.h"
+#import <Parse/Parse.h>
 
 @interface BookingViewController : UIViewController
 

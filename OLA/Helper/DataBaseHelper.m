@@ -8,19 +8,18 @@
 
 #import "DataBaseHelper.h"
 
+
 @implementation DataBaseHelper
 
--(NSDictionary *) getNearestDriverDetails{
++ (void) getNearestDriver:(void (^)(NSArray *users)) completionBlock{
     
-//    [PFCloud callFunctionInBackground:@"nearestdriver"
-//                       withParameters:@{}
-//                                block:^(id result, NSError *error) {
-//                                    if (!error) {
-//                                        //                                        NSLog(result);
-//                                    }
-//                                }];
-    
-    return nil;
+    [PFCloud callFunctionInBackground:@"nearestdriver"
+                       withParameters:@{}
+                                block:^(NSArray *users, NSError *error) {
+                                    if (!error) {
+                                        completionBlock(users);
+                                    }
+                                }];
 }
 
 @end

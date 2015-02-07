@@ -7,6 +7,8 @@
 //
 
 #import "BookingViewController.h"
+#import "DataBaseHelper.h"
+#import "BookingViewController.h"
 
 @interface BookingViewController (){
     
@@ -61,7 +63,22 @@
 }
 
 -(IBAction) onDetect:(id)sender{
+    
     [self startAnimation];
+    
+    [DataBaseHelper  getNearestDriver:^(NSArray *usersArr) {
+        if (usersArr) {
+            if (usersArr.count > 0) {
+                PFUser *user = [usersArr firstObject];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self stopAnimation];
+                    BookingViewController *detailView = [[BookingViewController alloc] init];
+                    [self.navigationController pushViewController:detailView animated:YES];
+                });
+            }
+        }
+    }];
 }
 
 @end
