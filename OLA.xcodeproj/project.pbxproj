@@ -93,11 +93,8 @@
 		55DA8BC31A86817600732B7F /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
 		55DA8BC41A86817600732B7F /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
 		55DA8BC61A8687C800732B7F /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		6E11C8C11A86B28F00D6C4E2 /* Chalonikalo.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chalonikalo.m4a; sourceTree = "<group>"; };
 		6E9AB2C41A860EFD00BCEF8E /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
->>>>>>> FETCH_HEAD
 		6E9AB2C61A860F9B00BCEF8E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		6E9AB2C81A860FA500BCEF8E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		6E9AB2CA1A860FAE00BCEF8E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
