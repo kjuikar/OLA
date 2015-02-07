@@ -94,7 +94,7 @@
 
  @returns An initialized `PFQueryCollectionViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout className:(NSString *)className NS_DESIGNATED_INITIALIZER;
+//- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout className:(NSString *)className NS_DESIGNATED_INITIALIZER;
 
 ///--------------------------------------
 /// @name Responding to Events

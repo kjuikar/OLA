@@ -8,7 +8,7 @@
 
 #import "BookingViewController.h"
 #import "DataBaseHelper.h"
-#import "BookingViewController.h"
+#import "BookingDetailsViewController.h"
 
 @interface BookingViewController (){
     
@@ -73,7 +73,8 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self stopAnimation];
-                    BookingViewController *detailView = [[BookingViewController alloc] init];
+                    BookingDetailsViewController *detailView = [[BookingDetailsViewController alloc] init];
+                    detailView.user = user;
                     [self.navigationController pushViewController:detailView animated:YES];
                 });
             }

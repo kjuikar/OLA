@@ -35,6 +35,6 @@
 
  @returns An initialized `PFProductTableViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithStyle:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER;
+//- (instancetype)initWithStyle:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER;
 
 @end

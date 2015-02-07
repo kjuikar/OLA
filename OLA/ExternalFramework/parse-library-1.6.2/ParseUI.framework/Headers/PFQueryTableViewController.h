@@ -52,7 +52,7 @@
 
  @returns An initialized `PFQueryTableViewController` object or `nil` if the object couldn't be created.
  */
-- (instancetype)initWithStyle:(UITableViewStyle)style className:(NSString *)className NS_DESIGNATED_INITIALIZER;
+//- (instancetype)initWithStyle:(UITableViewStyle)style className:(NSString *)className NS_DESIGNATED_INITIALIZER;
 
 /*!
  @abstract Initializes with a class name of the PFObjects that will be associated with this table.

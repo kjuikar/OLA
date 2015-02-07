@@ -8,11 +8,20 @@
 
 #import "BookingDetailsViewController.h"
 
-@interface BookingDetailsViewController ()
+
+@interface BookingDetailsViewController (){
+    
+    IBOutlet UILabel *name;
+    IBOutlet UILabel *vehicleNo;
+    IBOutlet UILabel *vehicleType;
+    IBOutlet UILabel *vehicleRate;
+    IBOutlet PFImageView *imageView;
+}
 
 @end
 
 @implementation BookingDetailsViewController
+@synthesize user;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +42,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    
+    name.text = [user objectForKey:@"username"];
+    vehicleNo.text = [user objectForKey:@"vehicleNo"];
+    vehicleRate.text = [user objectForKey:@"vehicleRate"];
+    vehicleType.text = [user objectForKey:@"vehicleType"];
+    
+    [imageView setFile:[user objectForKey:@"headshot"]];
+    [imageView loadInBackground];
 }
 
 @end

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CALayer+XibConfiguration.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface BookingDetailsViewController : UIViewController
+
+@property(nonatomic, retain) PFUser *user;
 
 @end
