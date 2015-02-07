@@ -22,11 +22,17 @@
     [Parse enableLocalDatastore];
     
     // Initialize Parse.
-    [Parse setApplicationId:@"Xl1NfDKvYRSALiK5BEJ92Jcq0T9BGko7I2hqgEVQ"
-                  clientKey:@"Qi1BFutWEeJx7GClbBdN7IlP0mPS3HoaZc1OvMC5"];
+    [Parse setApplicationId:@"o1I4bkQkMuJMqTufjZRm441SjHJr08tyD26EL201"
+                  clientKey:@"Ykd36SMOLetpYnFpOgwmn3KUs7JvVEDf6NDWa1u9"];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    [[UIApplication sharedApplication]
+     registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge |
+      UIRemoteNotificationTypeSound |
+      UIRemoteNotificationTypeAlert)];
     
 
     LoginViewController *cpvc = [[LoginViewController alloc] init];
@@ -37,7 +43,15 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    currentInstallation.channels = @[ @"global" ];
+    [currentInstallation saveInBackground];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
