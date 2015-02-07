@@ -8,7 +8,10 @@
 
 #import "BookingViewController.h"
 
-@interface BookingViewController ()
+@interface BookingViewController (){
+    
+    IBOutlet UIImageView *refresh;
+}
 
 @end
 
@@ -29,10 +32,36 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+
+-(void) viewDidAppear:(BOOL)animated{
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) startAnimation{
+    
+    refresh.hidden = NO;
+    CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation.fromValue = [NSNumber numberWithFloat:0];
+    rotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    rotation.duration = 1;
+    rotation.repeatCount = INFINITY;
+    [refresh.layer addAnimation:rotation forKey:@"Spin"];
+}
+
+-(void) stopAnimation{
+    
+    //background.hidden = YES;
+    [refresh.layer removeAllAnimations];
+}
+
+-(IBAction) onDetect:(id)sender{
+    [self startAnimation];
 }
 
 @end

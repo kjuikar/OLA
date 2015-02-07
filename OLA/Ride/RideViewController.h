@@ -1,5 +1,5 @@
 //
-//  BookingViewController.h
+//  RideViewController.h
 //  OLA
 //
 //  Created by Swapnil Patil on 07/02/15.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CALayer+XibConfiguration.h"
 
-@interface BookingViewController : UIViewController
+@interface RideViewController : UIViewController
 
 @end

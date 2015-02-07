@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 #import "BookingViewController.h"
 
 @implementation AppDelegate
@@ -16,8 +17,7 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    BookingViewController *cpvc = [[BookingViewController alloc] init];
-    
+    LoginViewController *cpvc = [[LoginViewController alloc] init];
     UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
     //self.navigationController = navcon;
     [self.window setRootViewController:navcon];
