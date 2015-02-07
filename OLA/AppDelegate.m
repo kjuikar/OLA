@@ -5,7 +5,7 @@
 //  Created by Kiran Juikar on 07/02/15.
 //  Copyright (c) 2015 Blackhat. All rights reserved.
 //
-
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "BookingViewController.h"
@@ -16,6 +16,18 @@
 {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // [Optional] Power your app with Local Datastore. For more info, go to
+    // https://parse.com/docs/ios_guide#localdatastore/iOS
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"Xl1NfDKvYRSALiK5BEJ92Jcq0T9BGko7I2hqgEVQ"
+                  clientKey:@"Qi1BFutWEeJx7GClbBdN7IlP0mPS3HoaZc1OvMC5"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
 
     LoginViewController *cpvc = [[LoginViewController alloc] init];
     UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
