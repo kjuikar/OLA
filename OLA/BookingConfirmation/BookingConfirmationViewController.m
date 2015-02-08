@@ -8,6 +8,7 @@
 
 #import "BookingConfirmationViewController.h"
 #import "DataBaseHelper.h"
+#import "RideViewController.h"
 
 @interface BookingConfirmationViewController (){
     
@@ -51,6 +52,9 @@
 -(IBAction)didConfirmBooking:(id)sender{
     
     [DataBaseHelper confirmBooking:@"Accepted" completion:^(NSString *user) {
+        
+        RideViewController *rideView = [[RideViewController alloc] init];
+        [self.navigationController pushViewController:rideView animated:YES];
         return;
     }];
 }
