@@ -17,6 +17,7 @@
     IBOutlet UILabel *vehicleRate;
     IBOutlet UILabel *driverStatus;
     IBOutlet PFImageView *imageView;
+    IBOutlet UIImageView *refresh;
     
     NSString *status;
 }
@@ -48,6 +49,13 @@
          
          status = [userInfo.userInfo objectForKey:@"status"];
          driverStatus.text = status;
+         
+         if ([status isEqualToString:@"Accepted"] ||[status isEqualToString:@"Rejected"] ) {
+             [self stopAnimation];
+         }else{
+             [self startAnimation];
+             
+         }
         // status = newStatus;
      });
 }
@@ -59,15 +67,37 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-    
+    if ([status isEqualToString:@"Accepted"] ||[status isEqualToString:@"Rejected"] ) {
+        [self stopAnimation];
+    }else{
+        [self startAnimation];
+
+    }
     name.text = [user objectForKey:@"username"];
-    vehicleNo.text = [user objectForKey:@"vehicleNo"];
+    vehicleNo.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"vehicleNo"]];
     vehicleRate.text = [user objectForKey:@"vehicleRate"];
-    vehicleType.text = [user objectForKey:@"vehicleType"];
+    vehicleType.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"vehicleType"]];
     driverStatus.text = status;
     
     [imageView setFile:[user objectForKey:@"headshot"]];
     [imageView loadInBackground];
+}
+
+-(void) startAnimation{
+    
+    refresh.hidden = NO;
+    CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotation.fromValue = [NSNumber numberWithFloat:0];
+    rotation.toValue = [NSNumber numberWithFloat:((360*M_PI)/180)];
+    rotation.duration = 1;
+    rotation.repeatCount = INFINITY;
+    [refresh.layer addAnimation:rotation forKey:@"Spin"];
+}
+
+-(void) stopAnimation{
+    
+    //background.hidden = YES;
+    [refresh.layer removeAllAnimations];
 }
 
 @end

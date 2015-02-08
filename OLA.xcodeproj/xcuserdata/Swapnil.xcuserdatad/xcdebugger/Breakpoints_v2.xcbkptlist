@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OLA/BookingDetails/BookingDetailsViewController.m"
-            timestampString = "445043160.631711"
+            timestampString = "445057113.960715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-viewDidAppear:"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-didReceiveMemoryWarning"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OLA/BookingDetails/BookingDetailsViewController.m"
-            timestampString = "445046788.923274"
+            timestampString = "445057113.960715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-updateStatus:"
             landmarkType = "5">
          </BreakpointContent>

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55172FC81A86FDD400278BEE /* ic_current_position.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC11A86FDD400278BEE /* ic_current_position.png */; };
+		55172FC91A86FDD400278BEE /* ic_rate_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC21A86FDD400278BEE /* ic_rate_card.png */; };
+		55172FCA1A86FDD400278BEE /* ic_ride_estimate.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC31A86FDD400278BEE /* ic_ride_estimate.png */; };
+		55172FCB1A86FDD400278BEE /* ic_side_bar_rate_xhdpi.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC41A86FDD400278BEE /* ic_side_bar_rate_xhdpi.png */; };
+		55172FCC1A86FDD400278BEE /* ic_track_driver.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC51A86FDD400278BEE /* ic_track_driver.png */; };
+		55172FCD1A86FDD400278BEE /* ic_track_ride_car_tapped.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC61A86FDD400278BEE /* ic_track_ride_car_tapped.png */; };
+		55172FCE1A86FDD400278BEE /* track_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 55172FC71A86FDD400278BEE /* track_me.png */; };
 		553856761A86AB1E00E6CF9F /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 553856751A86AB1E00E6CF9F /* ParseUI.framework */; };
 		553856781A86BF5400E6CF9F /* fade_layer.png in Resources */ = {isa = PBXBuildFile; fileRef = 553856771A86BF5400E6CF9F /* fade_layer.png */; };
 		5538567D1A86C94F00E6CF9F /* BookingConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5538567B1A86C94F00E6CF9F /* BookingConfirmationViewController.m */; };
@@ -70,6 +77,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55172FC11A86FDD400278BEE /* ic_current_position.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_current_position.png; sourceTree = "<group>"; };
+		55172FC21A86FDD400278BEE /* ic_rate_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_rate_card.png; sourceTree = "<group>"; };
+		55172FC31A86FDD400278BEE /* ic_ride_estimate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_ride_estimate.png; sourceTree = "<group>"; };
+		55172FC41A86FDD400278BEE /* ic_side_bar_rate_xhdpi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_side_bar_rate_xhdpi.png; sourceTree = "<group>"; };
+		55172FC51A86FDD400278BEE /* ic_track_driver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_track_driver.png; sourceTree = "<group>"; };
+		55172FC61A86FDD400278BEE /* ic_track_ride_car_tapped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_track_ride_car_tapped.png; sourceTree = "<group>"; };
+		55172FC71A86FDD400278BEE /* track_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track_me.png; sourceTree = "<group>"; };
 		553856751A86AB1E00E6CF9F /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		553856771A86BF5400E6CF9F /* fade_layer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fade_layer.png; sourceTree = "<group>"; };
 		5538567A1A86C94F00E6CF9F /* BookingConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingConfirmationViewController.h; sourceTree = "<group>"; };
@@ -253,6 +267,13 @@
 		55DA8BB31A867AB700732B7F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				55172FC11A86FDD400278BEE /* ic_current_position.png */,
+				55172FC21A86FDD400278BEE /* ic_rate_card.png */,
+				55172FC31A86FDD400278BEE /* ic_ride_estimate.png */,
+				55172FC41A86FDD400278BEE /* ic_side_bar_rate_xhdpi.png */,
+				55172FC51A86FDD400278BEE /* ic_track_driver.png */,
+				55172FC61A86FDD400278BEE /* ic_track_ride_car_tapped.png */,
+				55172FC71A86FDD400278BEE /* track_me.png */,
 				553856771A86BF5400E6CF9F /* fade_layer.png */,
 				55DA8BC61A8687C800732B7F /* loading.png */,
 				55DA8BBC1A86808C00732B7F /* 58x58.png */,
@@ -484,11 +505,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55172FCC1A86FDD400278BEE /* ic_track_driver.png in Resources */,
+				55172FCB1A86FDD400278BEE /* ic_side_bar_rate_xhdpi.png in Resources */,
+				55172FCE1A86FDD400278BEE /* track_me.png in Resources */,
+				55172FC81A86FDD400278BEE /* ic_current_position.png in Resources */,
 				6E11C8C21A86B2B200D6C4E2 /* Chalonikalo.m4a in Resources */,
 				55DA8BAE1A8656BF00732B7F /* RideViewController.xib in Resources */,
+				55172FC91A86FDD400278BEE /* ic_rate_card.png in Resources */,
 				55DA8B9B1A86294100732B7F /* LoginViewController.xib in Resources */,
 				55DA8BC11A86808C00732B7F /* 120x120.png in Resources */,
+				55172FCD1A86FDD400278BEE /* ic_track_ride_car_tapped.png in Resources */,
 				55D422C71A86062700254B1C /* BookingViewController.xib in Resources */,
+				55172FCA1A86FDD400278BEE /* ic_ride_estimate.png in Resources */,
 				6EAA08471A85D36900701770 /* Images.xcassets in Resources */,
 				55DA8BC01A86808C00732B7F /* 80x80.png in Resources */,
 				55DA8B951A86155B00732B7F /* BookingDetailsViewController.xib in Resources */,
