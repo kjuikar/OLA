@@ -65,6 +65,8 @@
 		6EAA08501A85D36900701770 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAA08321A85D36900701770 /* UIKit.framework */; };
 		6EAA08581A85D36900701770 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EAA08561A85D36900701770 /* InfoPlist.strings */; };
 		6EAA085A1A85D36900701770 /* OLATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA08591A85D36900701770 /* OLATests.m */; };
+		6EE918271A8738180032DFE5 /* EnjoyRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE918251A8738180032DFE5 /* EnjoyRideViewController.m */; };
+		6EE918281A8738180032DFE5 /* EnjoyRideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE918261A8738180032DFE5 /* EnjoyRideViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +156,9 @@
 		6EAA08551A85D36900701770 /* OLATests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OLATests-Info.plist"; sourceTree = "<group>"; };
 		6EAA08571A85D36900701770 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EAA08591A85D36900701770 /* OLATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OLATests.m; sourceTree = "<group>"; };
+		6EE918241A8738180032DFE5 /* EnjoyRideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EnjoyRideViewController.h; path = OLA/Ride/EnjoyRideViewController.h; sourceTree = SOURCE_ROOT; };
+		6EE918251A8738180032DFE5 /* EnjoyRideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnjoyRideViewController.m; path = OLA/Ride/EnjoyRideViewController.m; sourceTree = SOURCE_ROOT; };
+		6EE918261A8738180032DFE5 /* EnjoyRideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EnjoyRideViewController.xib; path = OLA/Ride/EnjoyRideViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +228,9 @@
 				55DA8B911A86155B00732B7F /* BookingDetailsViewController.h */,
 				55DA8B921A86155B00732B7F /* BookingDetailsViewController.m */,
 				55DA8B931A86155B00732B7F /* BookingDetailsViewController.xib */,
+				6EE918241A8738180032DFE5 /* EnjoyRideViewController.h */,
+				6EE918251A8738180032DFE5 /* EnjoyRideViewController.m */,
+				6EE918261A8738180032DFE5 /* EnjoyRideViewController.xib */,
 			);
 			path = BookingDetails;
 			sourceTree = "<group>";
@@ -517,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55172FCC1A86FDD400278BEE /* ic_track_driver.png in Resources */,
+				6EE918281A8738180032DFE5 /* EnjoyRideViewController.xib in Resources */,
 				55172FCB1A86FDD400278BEE /* ic_side_bar_rate_xhdpi.png in Resources */,
 				55172FCE1A86FDD400278BEE /* track_me.png in Resources */,
 				55172FC81A86FDD400278BEE /* ic_current_position.png in Resources */,
@@ -560,6 +569,7 @@
 				55DA8BA01A863F7700732B7F /* ReceiptViewController.m in Sources */,
 				55DA8BC51A86817600732B7F /* CALayer+XibConfiguration.m in Sources */,
 				55DA8BAD1A8656BF00732B7F /* RideViewController.m in Sources */,
+				6EE918271A8738180032DFE5 /* EnjoyRideViewController.m in Sources */,
 				6EAA083F1A85D36900701770 /* AppDelegate.m in Sources */,
 				55DA8BB21A86641100732B7F /* DataBaseHelper.m in Sources */,
 				5538567D1A86C94F00E6CF9F /* BookingConfirmationViewController.m in Sources */,
@@ -683,7 +693,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Swapnil Patil (YHTUCX27KM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kiran Juikar (Z8D3QKRWU2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kiran Juikar (Z8D3QKRWU2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OLA/ExternalFramework",
@@ -704,8 +715,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Swapnil Patil (YHTUCX27KM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Swapnil Patil (YHTUCX27KM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kiran Juikar (Z8D3QKRWU2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kiran Juikar (Z8D3QKRWU2)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OLA/ExternalFramework",

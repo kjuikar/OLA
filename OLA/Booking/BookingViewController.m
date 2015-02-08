@@ -9,6 +9,7 @@
 #import "BookingViewController.h"
 #import "DataBaseHelper.h"
 #import "BookingDetailsViewController.h"
+#import "RideViewController.h"
 
 @interface BookingViewController (){
     
@@ -55,7 +56,8 @@
         [detectButton setTitle:@"Auto Search" forState:UIControlStateNormal];
     }
     else{
-        [detectButton setTitle:@"Search" forState:UIControlStateNormal];
+        if(![detectButton.titleLabel.text isEqualToString:@"Send SMS"] && ![detectButton.titleLabel.text isEqualToString:@"Verify Code"])
+           [detectButton setTitle:@"Search" forState:UIControlStateNormal];
     }
 }
 
@@ -154,18 +156,25 @@
                                             [alert show];
                                             
                                             [vehicleNumberTextField setPlaceholder:@"Verification Code"];
+                                            [vehicleNumberTextField setText:@""];
+                                            [refresh setHidden:YES];
                                             [detectButton setTitle:@"Verify Code" forState:UIControlStateNormal];
                                             
                                         }
                                     }];
     }
-    else if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Send SMS"]) {
-        [PFCloud callFunctionInBackground:@"sendsms"
+    else if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Verify Code"]) {
+        [PFCloud callFunctionInBackground:@"validatesms"
                            withParameters:@{@"username":@"swapnilpatil", @"code":vehicleNumberTextField.text}
                                     block:^(NSArray *users, NSError *error) {
                                         if (!error) {
+                                             [refresh setHidden:YES];
+                                            [vehicleNumberTextField setText:@""];
                                             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"SMS verified." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                                             [alert show];
+                                            
+                                            RideViewController* ride = [[RideViewController alloc] init];
+                                            [self.navigationController pushViewController:ride animated:YES];
                                             
                                         }
                                     }];

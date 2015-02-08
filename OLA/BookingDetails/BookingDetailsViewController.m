@@ -7,7 +7,7 @@
 //
 
 #import "BookingDetailsViewController.h"
-
+#import "EnjoyRideViewController.h"
 
 @interface BookingDetailsViewController (){
     
@@ -51,6 +51,10 @@
          driverStatus.text = [NSString stringWithFormat:@"(%@)",status];
          
          if ([status isEqualToString:@"Accepted"] ||[status isEqualToString:@"Rejected"] ) {
+             if ([status isEqualToString:@"Accepted"]) {
+                 EnjoyRideViewController* enjoy = [[EnjoyRideViewController alloc] init];
+                 [self.navigationController pushViewController:enjoy animated:YES];
+             }
              [self stopAnimation];
          }else{
              [self startAnimation];
@@ -69,7 +73,9 @@
 -(void) viewDidAppear:(BOOL)animated{
 
     if ([status isEqualToString:@"Accepted"] ||[status isEqualToString:@"Rejected"] ) {
+        
         [self stopAnimation];
+        
     }else{
         [self startAnimation];
 
