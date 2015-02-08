@@ -42,6 +42,12 @@
     [vehicleNumberTextField addTarget:self
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
+    
+    
+    if ([type isEqualToString:@"driver"]) {
+        [vehicleNumberTextField setPlaceholder:@"Mobile number"];
+        [detectButton setTitle:@"Send SMS" forState:UIControlStateNormal];
+    }
 }
 
 -(void)textFieldDidChange :(UITextField *)theTextField{
@@ -116,7 +122,7 @@
             }
         }];
     }
-    else{
+    else if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Search"]) {
         [DataBaseHelper  getNearestDriverByVehicle:vehicleNumberTextField.text username:@"kiranjuikar" completion:^(NSArray *usersArr) {
             if (usersArr && usersArr.count > 0) {
                     PFUser *user = [usersArr firstObject];
@@ -139,6 +145,32 @@
             }
         }];
     }
+    else if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Send SMS"]) {
+        [PFCloud callFunctionInBackground:@"sendsms"
+                           withParameters:@{@"username":@"swapnilpatil"}
+                                    block:^(NSArray *users, NSError *error) {
+                                        if (!error) {
+                                            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"SMS sent successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                            [alert show];
+                                            
+                                            [vehicleNumberTextField setPlaceholder:@"Verification Code"];
+                                            [detectButton setTitle:@"Verify Code" forState:UIControlStateNormal];
+                                            
+                                        }
+                                    }];
+    }
+    else if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Send SMS"]) {
+        [PFCloud callFunctionInBackground:@"sendsms"
+                           withParameters:@{@"username":@"swapnilpatil", @"code":vehicleNumberTextField.text}
+                                    block:^(NSArray *users, NSError *error) {
+                                        if (!error) {
+                                            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"SMS verified." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                            [alert show];
+                                            
+                                        }
+                                    }];
+    }
+
 }
 
 @end

@@ -53,7 +53,7 @@
         //[self.navigationController pushViewController:bookingViewController animated:YES];
         userType = @"driver";
     }else{
-        userType = @"user";
+        userType = @"driver";
         
     }
     [self saveUser];
