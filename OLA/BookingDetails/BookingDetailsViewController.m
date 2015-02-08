@@ -48,7 +48,7 @@
      dispatch_async(dispatch_get_main_queue(), ^(void) {
          
          status = [userInfo.userInfo objectForKey:@"status"];
-         driverStatus.text = status;
+         driverStatus.text = [NSString stringWithFormat:@"(%@)",status];
          
          if ([status isEqualToString:@"Accepted"] ||[status isEqualToString:@"Rejected"] ) {
              [self stopAnimation];
@@ -76,11 +76,11 @@
     }
 
     name.text = [user objectForKey:@"name"];
-    vehicleNo.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"vehicleNo"]];
+    vehicleNo.text = [user objectForKey:@"vehicleNo"];
 
     vehicleRate.text = [user objectForKey:@"vehicleRate"];
     vehicleType.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"vehicleType"]];
-    driverStatus.text = status;
+    driverStatus.text = [NSString stringWithFormat:@"(%@)",status];
     
     [imageView setFile:[user objectForKey:@"headshot"]];
     [imageView loadInBackground];
@@ -99,7 +99,7 @@
 
 -(void) stopAnimation{
     
-    //background.hidden = YES;
+    refresh.hidden = YES;
     [refresh.layer removeAllAnimations];
 }
 

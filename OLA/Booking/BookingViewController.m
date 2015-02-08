@@ -13,6 +13,7 @@
 @interface BookingViewController (){
     
     IBOutlet UIImageView *refresh;
+    IBOutlet UIView *hidenView;
 }
 
 @end
@@ -70,7 +71,7 @@
 }
 
 -(void) startAnimation{
-    
+    hidenView.hidden = NO;
     refresh.hidden = NO;
     CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     rotation.fromValue = [NSNumber numberWithFloat:0];
@@ -107,6 +108,7 @@
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
                     refresh.hidden = YES;
+                    hidenView.hidden = YES;
                     [self stopAnimation];
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"Unable to find the cab nearby. Please try searching vehicle number." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
@@ -129,6 +131,7 @@
             else{
                 dispatch_async(dispatch_get_main_queue(), ^{
                     refresh.hidden = YES;
+                    hidenView.hidden = YES;
                     [self stopAnimation];
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"Unable to find the vehicle" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
