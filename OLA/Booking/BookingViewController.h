@@ -13,5 +13,6 @@
 @interface BookingViewController : UIViewController
 
 @property(nonatomic, retain) NSString *type;
-
+@property(nonatomic, retain) IBOutlet UITextField *vehicleNumberTextField;
+@property(nonatomic, retain) IBOutlet UIButton *detectButton;
 @end

@@ -49,6 +49,36 @@
             endingLineNumber = "48"
             landmarkName = "-updateStatus:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[BookingDetailsViewController updateStatus:]"
+                  moduleName = "OLA"
+                  urlString = "file:///Users/Swapnil/Documents/Sample%20Projects/OLA/OLA/BookingDetails/BookingDetailsViewController.m"
+                  timestampString = "445057213.170018"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[BookingDetailsViewController updateStatus:]_block_invoke"
+                  moduleName = "OLA"
+                  urlString = "file:///Users/Swapnil/Documents/Sample%20Projects/OLA/OLA/BookingDetails/BookingDetailsViewController.m"
+                  timestampString = "445057213.170289"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

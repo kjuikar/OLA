@@ -67,14 +67,17 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
+
     if ([status isEqualToString:@"Accepted"] ||[status isEqualToString:@"Rejected"] ) {
         [self stopAnimation];
     }else{
         [self startAnimation];
 
     }
-    name.text = [user objectForKey:@"username"];
+
+    name.text = [user objectForKey:@"name"];
     vehicleNo.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"vehicleNo"]];
+
     vehicleRate.text = [user objectForKey:@"vehicleRate"];
     vehicleType.text = [NSString stringWithFormat:@"(%@)",[user objectForKey:@"vehicleType"]];
     driverStatus.text = status;

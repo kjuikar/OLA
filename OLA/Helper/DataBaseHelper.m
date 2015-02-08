@@ -12,11 +12,23 @@
 @implementation DataBaseHelper
 
 + (void) getNearestDriver:(NSString *) userName
-              phoneNumner:(NSString *) phoneNo
                completion:(void (^)(NSArray *usersArr)) completionBlock{
     
     [PFCloud callFunctionInBackground:@"getnearestdriver"
                        withParameters:@{@"username":userName}
+                                block:^(NSArray *users, NSError *error) {
+                                    if (!error) {
+                                        completionBlock(users);
+                                    }
+                                }];
+}
+
++ (void) getNearestDriverByVehicle:(NSString *) vehicle
+                          username:(NSString*) username
+               completion:(void (^)(NSArray *usersArr)) completionBlock{
+    
+    [PFCloud callFunctionInBackground:@"getdriverbyvehiclenumber"
+                       withParameters:@{@"vehicle":[vehicle lowercaseString], @"username":username}
                                 block:^(NSArray *users, NSError *error) {
                                     if (!error) {
                                         completionBlock(users);
