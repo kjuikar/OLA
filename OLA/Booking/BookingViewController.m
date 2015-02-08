@@ -52,8 +52,9 @@
     }
 }
 
--(void) viewDidAppear:(BOOL)animated{
 
+-(void) viewWillAppear:(BOOL)animated{
+    refresh.hidden = YES;
 }
 
 
