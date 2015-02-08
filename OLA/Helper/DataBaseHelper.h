@@ -12,8 +12,11 @@
 @interface DataBaseHelper : NSObject
 
 + (void) getNearestDriver:(NSString *) userName
-              phoneNumner:(NSString *) phoneNo
                completion:(void (^)(NSArray *usersArr)) completionBlock;
+
++ (void) getNearestDriverByVehicle:(NSString *) vehicle
+                          username:(NSString*) username
+                        completion:(void (^)(NSArray *usersArr)) completionBlock;
 
 +(void) confirmBooking:(NSString *) status completion:(void (^)(NSString * status)) completionBlock;
 

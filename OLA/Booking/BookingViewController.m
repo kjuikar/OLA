@@ -19,6 +19,8 @@
 
 @implementation BookingViewController
 @synthesize type;
+@synthesize vehicleNumberTextField;
+@synthesize detectButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,12 +34,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [detectButton setTitle:@"Auto Detect" forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
+    
+    // Add a "textFieldDidChange" notification method to the text field control.
+    [vehicleNumberTextField addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
 }
 
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    if (theTextField.text.length == 0) {
+        [detectButton setTitle:@"Auto Detect" forState:UIControlStateNormal];
+    }
+    else{
+        [detectButton setTitle:@"Detect" forState:UIControlStateNormal];
+    }
+}
 
 -(void) viewDidAppear:(BOOL)animated{
 
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,20 +88,40 @@
 -(IBAction) onDetect:(id)sender{
     
     [self startAnimation];
-    [DataBaseHelper  getNearestDriver:@"kiranjuikar" phoneNumner:@"9881234950" completion:^(NSArray *usersArr) {
-        if (usersArr) {
-            if (usersArr.count > 0) {
-                PFUser *user = [usersArr firstObject];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self stopAnimation];
-                    BookingDetailsViewController *detailView = [[BookingDetailsViewController alloc] init];
-                    detailView.user = user;
-                    [self.navigationController pushViewController:detailView animated:YES];
-                });
+    
+    if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Auto Detect"]) {
+    
+        [DataBaseHelper  getNearestDriver:@"kiranjuikar" completion:^(NSArray *usersArr) {
+            if (usersArr) {
+                if (usersArr.count > 0) {
+                    PFUser *user = [usersArr firstObject];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self stopAnimation];
+                        BookingDetailsViewController *detailView = [[BookingDetailsViewController alloc] init];
+                        detailView.user = user;
+                        [self.navigationController pushViewController:detailView animated:YES];
+                    });
+                }
             }
-        }
-    }];
+        }];
+    }
+    else{
+        [DataBaseHelper  getNearestDriverByVehicle:vehicleNumberTextField.text username:@"kiranjuikar" completion:^(NSArray *usersArr) {
+            if (usersArr) {
+                if (usersArr.count > 0) {
+                    PFUser *user = [usersArr firstObject];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self stopAnimation];
+                        BookingDetailsViewController *detailView = [[BookingDetailsViewController alloc] init];
+                        detailView.user = user;
+                        [self.navigationController pushViewController:detailView animated:YES];
+                    });
+                }
+            }
+        }];
+    }
 }
 
 @end

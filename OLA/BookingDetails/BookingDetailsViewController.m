@@ -60,7 +60,7 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     
-    name.text = [user objectForKey:@"username"];
+    name.text = [user objectForKey:@"name"];
     vehicleNo.text = [user objectForKey:@"vehicleNo"];
     vehicleRate.text = [user objectForKey:@"vehicleRate"];
     vehicleType.text = [user objectForKey:@"vehicleType"];
