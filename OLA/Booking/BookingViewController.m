@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [detectButton setTitle:@"Auto Detect" forState:UIControlStateNormal];
+    [detectButton setTitle:@"Auto Search" forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
     
     // Add a "textFieldDidChange" notification method to the text field control.
@@ -45,10 +45,10 @@
 
 -(void)textFieldDidChange :(UITextField *)theTextField{
     if (theTextField.text.length == 0) {
-        [detectButton setTitle:@"Auto Detect" forState:UIControlStateNormal];
+        [detectButton setTitle:@"Auto Search" forState:UIControlStateNormal];
     }
     else{
-        [detectButton setTitle:@"Detect" forState:UIControlStateNormal];
+        [detectButton setTitle:@"Search" forState:UIControlStateNormal];
     }
 }
 
@@ -88,12 +88,12 @@
 -(IBAction) onDetect:(id)sender{
     
     [self startAnimation];
+    [vehicleNumberTextField resignFirstResponder];
     
-    if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Auto Detect"]) {
+    if ([((UIButton*)sender).titleLabel.text isEqualToString:@"Auto Search"]) {
     
         [DataBaseHelper  getNearestDriver:@"kiranjuikar" completion:^(NSArray *usersArr) {
-            if (usersArr) {
-                if (usersArr.count > 0) {
+            if (usersArr && usersArr.count > 0) {
                     PFUser *user = [usersArr firstObject];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -102,14 +102,20 @@
                         detailView.user = user;
                         [self.navigationController pushViewController:detailView animated:YES];
                     });
-                }
+            }
+            else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    refresh.hidden = YES;
+                    [self stopAnimation];
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"Unable to find the cab nearby. Please try searching vehicle number." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                });
             }
         }];
     }
     else{
         [DataBaseHelper  getNearestDriverByVehicle:vehicleNumberTextField.text username:@"kiranjuikar" completion:^(NSArray *usersArr) {
-            if (usersArr) {
-                if (usersArr.count > 0) {
+            if (usersArr && usersArr.count > 0) {
                     PFUser *user = [usersArr firstObject];
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,7 +124,14 @@
                         detailView.user = user;
                         [self.navigationController pushViewController:detailView animated:YES];
                     });
-                }
+            }
+            else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    refresh.hidden = YES;
+                    [self stopAnimation];
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"OLA" message:@"Unable to find the vehicle" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                });
             }
         }];
     }

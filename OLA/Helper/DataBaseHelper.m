@@ -28,7 +28,7 @@
                completion:(void (^)(NSArray *usersArr)) completionBlock{
     
     [PFCloud callFunctionInBackground:@"getdriverbyvehiclenumber"
-                       withParameters:@{@"vehicle":vehicle, @"username":username}
+                       withParameters:@{@"vehicle":[vehicle lowercaseString], @"username":username}
                                 block:^(NSArray *users, NSError *error) {
                                     if (!error) {
                                         completionBlock(users);
