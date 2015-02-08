@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "BookingViewController.h"
+#import "BookingConfirmationViewController.h"
 
 @implementation AppDelegate
 
@@ -27,20 +28,40 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
+    
     [[UIApplication sharedApplication]
      registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge |
       UIRemoteNotificationTypeSound |
       UIRemoteNotificationTypeAlert)];
     
-
-    LoginViewController *cpvc = [[LoginViewController alloc] init];
-    UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
-    //self.navigationController = navcon;
-    [self.window setRootViewController:navcon];
-    //self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    NSDictionary *user = [self getUser];
+    if (user) {
+        if (launchOptions) {
+            NSDictionary* userInfo = [launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
+            if (userInfo && [userInfo isKindOfClass:[NSDictionary class]]) {
+                [self handleRemoteNotification:userInfo];
+                return YES;
+            }
+            
+        }
+        
+        BookingViewController *cpvc = [[BookingViewController alloc] init];
+        UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
+        //self.navigationController = navcon;
+        [self.window setRootViewController:navcon];
+        //self.window.backgroundColor = [UIColor whiteColor];
+        [self.window makeKeyAndVisible];
+        
+    }else{
+        
+        LoginViewController *cpvc = [[LoginViewController alloc] init];
+        UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
+        //self.navigationController = navcon;
+        [self.window setRootViewController:navcon];
+        //self.window.backgroundColor = [UIColor whiteColor];
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
 
@@ -52,6 +73,11 @@
     [currentInstallation saveInBackground];
 }
 
+-(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    
+    [self handleRemoteNotification:userInfo];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -60,7 +86,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -78,5 +104,41 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void) handleRemoteNotification:(NSDictionary*)userInfo{
+    
+    NSDictionary *user = [self getUser];
+    if (user) {
+
+        NSString *userType = [user objectForKey:@"ut"];
+        
+        if ([userInfo objectForKey:@"type"] && [[userInfo objectForKey:@"type"] isEqualToString:@"booking"] && [userType isEqualToString:@"driver"]) {
+            
+            BookingConfirmationViewController *cpvc = [[BookingConfirmationViewController alloc] init];
+            cpvc.message = [NSString stringWithFormat:@"Mr. %@(%@) wants to book your cab. Are you ready to serve him?",[userInfo objectForKey:@"name"],[userInfo objectForKey:@"mob"]];
+            UINavigationController *navcon = [[UINavigationController alloc] initWithRootViewController:cpvc];
+            //self.navigationController = navcon;
+            [self.window setRootViewController:navcon];
+            //self.window.backgroundColor = [UIColor whiteColor];
+            [self.window makeKeyAndVisible];
+        }else if ([userInfo objectForKey:@"type"] && [[userInfo objectForKey:@"type"]isEqualToString:@"confirm"]) {
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"status" object:@"Accepted"];
+        }
+    }
+}
+
+-(NSDictionary *) getUser{
+    
+    NSDictionary *dict = nil;
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectoryPath=[paths lastObject]?[paths objectAtIndex:0]:nil;
+    documentsDirectoryPath = [documentsDirectoryPath stringByAppendingPathComponent:@"unp.ola"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:documentsDirectoryPath]) {
+        dict = [NSDictionary dictionaryWithContentsOfFile:documentsDirectoryPath];
+    }
+    return dict;
+}
+
 
 @end

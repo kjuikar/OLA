@@ -12,4 +12,6 @@
 
 @interface BookingViewController : UIViewController
 
+@property(nonatomic, retain) NSString *type;
+
 @end

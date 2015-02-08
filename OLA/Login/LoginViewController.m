@@ -13,6 +13,7 @@
     
     IBOutlet UITextField *userName;
     IBOutlet UITextField *passWord;
+    NSString *userType;
 }
 
 @end
@@ -42,13 +43,32 @@
 
 -(IBAction) onLogin:(id)sender{
     
+    
+    
     BookingViewController *bookingViewController = [[BookingViewController alloc] init];
     
     if ([[userName.text lowercaseString] isEqualToString:@"kiran"]) {
-        [self.navigationController pushViewController:bookingViewController animated:YES];
+        userType = @"user";
     }else if([[userName.text lowercaseString] isEqualToString:@"swapnil"]){
-        [self.navigationController pushViewController:bookingViewController animated:YES];
+        //[self.navigationController pushViewController:bookingViewController animated:YES];
+        userType = @"driver";
+    }else{
+        userType = @"user";
+        
     }
+    [self saveUser];
+    bookingViewController.type = userType;
+    [self.navigationController pushViewController:bookingViewController animated:YES];
+}
+
+-(void) saveUser{
+    
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectoryPath=[paths lastObject]?[paths objectAtIndex:0]:nil;
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:userName.text,@"uname",passWord.text,@"pwd",userType,@"ut", nil];
+    
+    [dict writeToFile:[documentsDirectoryPath stringByAppendingPathComponent:@"unp.ola"] atomically:YES];
+    
 }
 
 @end

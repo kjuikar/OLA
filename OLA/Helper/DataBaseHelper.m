@@ -11,15 +11,30 @@
 
 @implementation DataBaseHelper
 
-+ (void) getNearestDriver:(void (^)(NSArray *users)) completionBlock{
++ (void) getNearestDriver:(NSString *) userName
+              phoneNumner:(NSString *) phoneNo
+               completion:(void (^)(NSArray *usersArr)) completionBlock{
     
-    [PFCloud callFunctionInBackground:@"nearestdriver"
-                       withParameters:@{}
+    [PFCloud callFunctionInBackground:@"getnearestdriver"
+                       withParameters:@{@"username":userName}
                                 block:^(NSArray *users, NSError *error) {
                                     if (!error) {
                                         completionBlock(users);
                                     }
                                 }];
 }
+
++(void) confirmBooking:(NSString *) statusM completion:(void (^)(NSString * status)) completionBlock{
+    //confirmbooking
+    
+    [PFCloud callFunctionInBackground:@"confirmbooking"
+                       withParameters:@{@"status":statusM}
+                                block:^(NSString *returnStatus, NSError *error) {
+                                    if (!error) {
+                                        completionBlock(returnStatus);
+                                    }
+                                }];
+}
+
 
 @end

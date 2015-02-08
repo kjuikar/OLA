@@ -15,7 +15,10 @@
     IBOutlet UILabel *vehicleNo;
     IBOutlet UILabel *vehicleType;
     IBOutlet UILabel *vehicleRate;
+    IBOutlet UILabel *driverStatus;
     IBOutlet PFImageView *imageView;
+    
+    NSString *status;
 }
 
 @end
@@ -28,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        status = @"Waiting for Confirmation";
     }
     return self;
 }
@@ -36,6 +40,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStatus:) name:@"status" object:status];
+}
+
+-(void) updateStatus:(NSString *) newStatus{
+    driverStatus.text = newStatus;
+    status = newStatus;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +60,7 @@
     vehicleNo.text = [user objectForKey:@"vehicleNo"];
     vehicleRate.text = [user objectForKey:@"vehicleRate"];
     vehicleType.text = [user objectForKey:@"vehicleType"];
+    driverStatus.text = status;
     
     [imageView setFile:[user objectForKey:@"headshot"]];
     [imageView loadInBackground];

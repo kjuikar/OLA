@@ -11,6 +11,10 @@
 
 @interface DataBaseHelper : NSObject
 
-+ (void) getNearestDriver:(void (^)(NSArray *usersArr)) completionBlock;
++ (void) getNearestDriver:(NSString *) userName
+              phoneNumner:(NSString *) phoneNo
+               completion:(void (^)(NSArray *usersArr)) completionBlock;
+
++(void) confirmBooking:(NSString *) status completion:(void (^)(NSString * status)) completionBlock;
 
 @end

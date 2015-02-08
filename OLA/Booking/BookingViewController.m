@@ -18,6 +18,7 @@
 @end
 
 @implementation BookingViewController
+@synthesize type;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,8 +66,7 @@
 -(IBAction) onDetect:(id)sender{
     
     [self startAnimation];
-    
-    [DataBaseHelper  getNearestDriver:^(NSArray *usersArr) {
+    [DataBaseHelper  getNearestDriver:@"kiranjuikar" phoneNumner:@"9881234950" completion:^(NSArray *usersArr) {
         if (usersArr) {
             if (usersArr.count > 0) {
                 PFUser *user = [usersArr firstObject];
