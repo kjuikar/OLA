@@ -40,12 +40,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStatus:) name:@"status" object:status];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateStatus:) name:@"status" object:nil];
 }
 
--(void) updateStatus:(NSString *) newStatus{
-    driverStatus.text = newStatus;
-    status = newStatus;
+-(void) updateStatus:(NSNotification *) userInfo{
+     dispatch_async(dispatch_get_main_queue(), ^(void) {
+         
+         status = [userInfo.userInfo objectForKey:@"status"];
+         driverStatus.text = status;
+        // status = newStatus;
+     });
 }
 
 - (void)didReceiveMemoryWarning

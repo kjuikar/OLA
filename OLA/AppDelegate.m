@@ -122,8 +122,8 @@
             //self.window.backgroundColor = [UIColor whiteColor];
             [self.window makeKeyAndVisible];
         }else if ([userInfo objectForKey:@"type"] && [[userInfo objectForKey:@"type"]isEqualToString:@"confirm"]) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"status" object:@"Accepted"];
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"status" object:nil userInfo:userInfo];
         }
     }
 }
